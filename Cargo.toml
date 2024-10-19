@@ -1,0 +1,38 @@
+[package]
+name = "polarsmeteorological"
+version = "0.34.17"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html.
+[lib]
+name = "polarsmeteorological"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.20.0", features = ["extension-module"] }
+pyo3-polars = { version = "0.8.0", features = ["derive"] }
+pyo3-log = "0.8.1"
+log="0.4.17"
+serde = { version = "1", features = ["derive"] }
+chrono = { version = "0.4.38", default-features = false, features = ["std", "unstable-locales"] } 
+chrono-tz = "0.10.0"
+#note in newer polars "abs" is in the create "ops"
+#in newer polars cum_agg feature not needed since cumsum renamed cum_sum and moved to polars-ops
+polars = { version = "=0.34.2", features = ["lazy", "strings", "dtype-date", "dtype-struct", "fmt", "abs", "cum_agg"], default-features = false }
+polars-core = { version = "=0.34.2", default-features = false }
+polars-time = { version = "=0.34.2", features = ["timezones"], default-features = false }
+polars-ops = { version = "=0.34.2", default-features = false }
+
+ 
+polars-arrow = { version = "=0.34.2", default-features = false }
+lazy_static = "1.4.0"
+rayon = {version = "1.7"}
+ordered-float = "4.2.0"
+kdtree = "0.7.0"
+itertools = "0.13.0"
+distances = "1.7.1"
+haversine = "0.2.1"
+meteo_tools = "1.1.0"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+jemallocator = { version = "0.5", features = ["disable_initial_exec_tls"] }

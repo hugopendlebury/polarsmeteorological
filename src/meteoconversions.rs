@@ -1,7 +1,7 @@
 use meteo_tools::*;
 use polars::series::Series;
 use polars::prelude::*;
-use itertools::{izip, Itertools};
+use itertools::izip;
 
 pub(crate) fn impl_common_celsius_dew_point(
     inputs: &[Series],
@@ -188,13 +188,7 @@ pub(crate) fn impl_single_arg_series_generic(
     );
 
     let values  = points.map(|x| {
-
-        if let Some(t) = x.0 {
-                Some(func(&t))
-
-        } else {
-            None
-        }
+        x.0.map(|t| func(&t))
     });
 
     Ok(Series::new("ts", values.collect::<Vec<_>>()))
@@ -220,11 +214,7 @@ pub(crate) fn impl_two_arg_series_generic(
     let values  = points.map(|x| {
 
         if let Some(t) = x.0 {
-            if let Some(r) = x.1 {
-                Some(func(&t, &r))
-            } else {
-                None
-            }
+            x.1.map(|r| func(&t, &r))
         } else {
             None
         }
@@ -261,11 +251,7 @@ pub(crate) fn impl_three_arg_series_generic(
 
         if let Some(t) = x.0 {
             if let Some(r) = x.1 {
-                if let Some(p) = x.2 {
-                    Some(func(&t, &r, &p))
-                } else {
-                    None
-                }
+                x.2.map(|p| func(&t, &r, &p))
             } else {
                 None
             }

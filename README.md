@@ -1,6 +1,6 @@
 # Polars-Meteorological
 
-Geo tools for [Polars](https://www.pola.rs/).
+Meteorological functions for [Polars](https://www.pola.rs/).
 
 - ✅ blazingly fast, written in Rust!
 - ✅ seamless Polars integration!

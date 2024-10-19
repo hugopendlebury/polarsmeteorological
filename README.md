@@ -19,9 +19,9 @@ Installation
 
 First, you need to [install Polars](https://pola-rs.github.io/polars/user-guide/installation/).
 
-Then, you'll need to install `polarsgeoutils`:
+Then, you'll need to install `polarsmeteorological`:
 ```console
-pip install polarsgeoutils
+pip install polarsmeteorological
 ```
 
 Usage

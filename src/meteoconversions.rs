@@ -316,6 +316,14 @@ pub(crate) fn impl_meters_to_feet(inputs: &[Series]) -> Result<Series, PolarsErr
 
 }
 
+pub(crate) fn impl_wind_chill_celsius_kph(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_two_arg_series_generic(inputs, |t, w| {
+        13.12 + 0.6215*t - 11.37 * w.pow(0.16) + 0.3965 * t*w.pow(0.16)
+    })
+
+}
+
 pub(crate) fn impl_celsius_dew_point(
     inputs: &[Series],
 ) -> Result<Series, PolarsError> { 
@@ -940,6 +948,22 @@ mod test {
         let results = impl_fahrenheit_absolute_humidity(&[temperature, relative_humidity]);
 
         let unwrapped = results.unwrap();
+
+        assert!(expected.series_equal(&unwrapped));
+    }
+
+    #[test]
+    fn test_wind_chill_celsius_kph() {
+
+        let temperature = Series::new("temperature".into(), &[-5.0]);
+        let wind_speed = Series::new("temperature".into(), &[20.0]);
+        let expected = Series::new("ts".into(), &[8]);
+    
+        let results = impl_wind_chill_celsius_kph(&[temperature, wind_speed]);
+
+        let unwrapped = results.unwrap();
+
+        println!("{}", unwrapped);
 
         assert!(expected.series_equal(&unwrapped));
     }

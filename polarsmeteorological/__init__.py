@@ -37,6 +37,7 @@ from polarsmeteorological.functions import (
     mps_to_knots,
     mps_to_mph,
     wind_speed,
+    wind_chill_celsius
 )
 
 #from ._internal import __version__
@@ -76,6 +77,7 @@ __all__ = [
     "mps_to_kmph",
     "mps_to_knots",
     "mps_to_mph",
-    "wind_speed,"
+    "wind_speed",
+    "wind_chill_celsius",
     "__version__"
 ]

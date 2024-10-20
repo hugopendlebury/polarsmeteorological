@@ -564,3 +564,15 @@ def meters_to_feet(u_component: str | pl.Expr) -> pl.Expr:
         args=[],
         is_elementwise=True,
     )
+
+def wind_chill_celsius_kph(temperature: str | pl.Expr) -> pl.Expr:
+    """
+    Calculates the wind chill
+    """
+    expr = parse_into_expr(temperature)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="wind_chill_celsius_kph",
+        args=[],
+        is_elementwise=True,
+    )

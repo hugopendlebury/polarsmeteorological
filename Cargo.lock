@@ -968,7 +968,7 @@ dependencies = [
 
 [[package]]
 name = "polarsmeteorological"
-version = "0.34.18"
+version = "0.34.19"
 dependencies = [
  "chrono",
  "chrono-tz 0.10.0",

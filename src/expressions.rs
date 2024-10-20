@@ -20,6 +20,99 @@ fn celsius_to_kelvin(inputs: &[Series]) -> Result<Series, PolarsError> {
     impl_celsius_to_kelvin(inputs)
 }
 
+
+#[polars_expr(output_type=Float64)]
+fn hpa_to_inhg(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_hpa_to_inhg(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
+fn hpa_to_mmhg(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_hpa_to_mmhg(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
+fn inhg_to_hpa(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_inhg_to_hpa(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
+fn mmhg_to_hpa(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_mmhg_to_hpa(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
+fn kmph_to_knots(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_kmph_to_knots(inputs)
+}
+
+
+#[polars_expr(output_type=Float64)]
+fn knots_to_mps(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_knots_to_mps(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
+fn mph_to_kmph(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_mph_to_kmph(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
+fn mph_to_knots(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_mph_to_knots(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
+fn mph_to_mps(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_mph_to_mps(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
+fn mps_to_kmph(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_mps_to_kmph(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
+fn mps_to_mph(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_mps_to_mph(inputs)
+}
+
+
+#[polars_expr(output_type=Float64)]
+fn mps_to_knots(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_mps_to_knots(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
+fn knots_to_mph(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_knots_to_mph(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
+fn kmph_to_mph(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_kmph_to_mph(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
+fn kmph_to_mps(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_kmph_to_mps(inputs)
+}
+
 #[polars_expr(output_type=Float64)]
 fn kelvin_to_celsius(inputs: &[Series]) -> Result<Series, PolarsError> {
 
@@ -134,4 +227,10 @@ fn common_fahrenheit_mixing_ratio(inputs: &[Series]) -> Result<Series, PolarsErr
 fn fahrenheit_mixing_ratio(inputs: &[Series]) -> Result<Series, PolarsError> {
 
     impl_fahrenheit_mixing_ratio(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
+fn wind_speed(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_wind_speed(inputs)
 }

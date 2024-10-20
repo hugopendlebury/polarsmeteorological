@@ -24,7 +24,7 @@ lib = _get_shared_lib_location(__file__)
 if TYPE_CHECKING:
     from polars import Expr
 
-def celsius_to_fahrenheit(temperature: str | pl.Expr, ) -> pl.Expr:
+def celsius_to_fahrenheit(temperature: str | pl.Expr ) -> pl.Expr:
     """
     Converts celsius to fahrenheit degrees
     """
@@ -36,7 +36,7 @@ def celsius_to_fahrenheit(temperature: str | pl.Expr, ) -> pl.Expr:
         is_elementwise=True,
     )
 
-def celsius_to_kelvin(temperature: str | pl.Expr, ) -> pl.Expr:
+def celsius_to_kelvin(temperature: str | pl.Expr ) -> pl.Expr:
     """
     Converts celsius to kelvin
     """
@@ -48,7 +48,7 @@ def celsius_to_kelvin(temperature: str | pl.Expr, ) -> pl.Expr:
         is_elementwise=True,
     )
 
-def fahrenheit_to_kelvin(temperature: str | pl.Expr, ) -> pl.Expr:
+def fahrenheit_to_kelvin(temperature: str | pl.Expr ) -> pl.Expr:
     """
     Converts fahrenheit to kelvin
     """
@@ -60,7 +60,188 @@ def fahrenheit_to_kelvin(temperature: str | pl.Expr, ) -> pl.Expr:
         is_elementwise=True,
     )
 
-def kelvin_to_celsius(temperature: str | pl.Expr, ) -> pl.Expr:
+def hpa_to_inhg(pressure: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts hPa to inHg.
+    """
+    expr = parse_into_expr(pressure)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="hpa_to_inhg",
+        args=[],
+        is_elementwise=True,
+    )
+
+def inhg_to_hpa(pressure: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts inHg to hPa.
+    """
+    expr = parse_into_expr(pressure)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="inhg_to_hpa",
+        args=[],
+        is_elementwise=True,
+    )
+
+def mmhg_to_hpa(pressure: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts mmHg to hPa.
+    """
+    expr = parse_into_expr(pressure)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="mmhg_to_hpa",
+        args=[],
+        is_elementwise=True,
+    )
+
+def hpa_to_mmhg(pressure: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts hPa to mmHg.
+    """
+    expr = parse_into_expr(pressure)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="hpa_to_mmhg",
+        args=[],
+        is_elementwise=True,
+    )
+
+def kmph_to_knots(speed: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts speed from Kilometers per hour to Knots per hour.
+    """
+    expr = parse_into_expr(speed)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="kmph_to_knots",
+        args=[],
+        is_elementwise=True,
+    )
+
+def kmph_to_mph(speed: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts speed from Kilometers per hour to Miles per hour.
+    """
+    expr = parse_into_expr(speed)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="kmph_to_mph",
+        args=[],
+        is_elementwise=True,
+    )
+
+def knots_to_kmph(speed: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts speed from Knots per hour to Kilometers per hour..
+    """
+    expr = parse_into_expr(speed)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="knots_to_kmph",
+        args=[],
+        is_elementwise=True,
+    )
+
+def knots_to_mph(speed: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts speed from Knots per hour to Miles per hour.
+    """
+    expr = parse_into_expr(speed)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="knots_to_mph",
+        args=[],
+        is_elementwise=True,
+    )
+
+def knots_to_mps(speed: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts speed from Knots per hour to Meters per second.
+    """
+    expr = parse_into_expr(speed)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="knots_to_mps",
+        args=[],
+        is_elementwise=True,
+    )
+
+
+def kmph_to_mps(speed: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts speed from Kilometers per hour to meters per seconds.
+    """
+    expr = parse_into_expr(speed)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="kmph_to_mps",
+        args=[],
+        is_elementwise=True,
+    )
+
+def mph_to_kmph(speed: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts speed from Miles per hour to Kilometers per hour.
+    """
+    expr = parse_into_expr(speed)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="mph_to_kmph",
+        args=[],
+        is_elementwise=True,
+    )
+
+def mph_to_knots(speed: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts speed from Miles per hour to Knots per hour.
+    """
+    expr = parse_into_expr(speed)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="mph_to_knots",
+        args=[],
+        is_elementwise=True,
+    )
+
+def mps_to_kmph(speed: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts speed from Meters per second to Kilometers per hour.
+    """
+    expr = parse_into_expr(speed)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="mps_to_kmph",
+        args=[],
+        is_elementwise=True,
+    )
+
+def mps_to_knots(speed: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts speed from Meters per second to Knots per hour.
+    """
+    expr = parse_into_expr(speed)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="mps_to_knots",
+        args=[],
+        is_elementwise=True,
+    )
+
+def mps_to_mph(speed: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts speed from Meters per second to Miles per hour.
+    """
+    expr = parse_into_expr(speed)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="mps_to_mph",
+        args=[],
+        is_elementwise=True,
+    )
+
+def kelvin_to_celsius(temperature: str | pl.Expr ) -> pl.Expr:
     """
     Converts from kelvin to celsius
     """
@@ -72,7 +253,8 @@ def kelvin_to_celsius(temperature: str | pl.Expr, ) -> pl.Expr:
         is_elementwise=True,
     )
 
-def kelvin_to_fahrenheit(temperature: str | pl.Expr, ) -> pl.Expr:
+
+def kelvin_to_fahrenheit(temperature: str | pl.Expr ) -> pl.Expr:
     """
     Converts from kelvin to fahrenheit
     """
@@ -84,7 +266,7 @@ def kelvin_to_fahrenheit(temperature: str | pl.Expr, ) -> pl.Expr:
         is_elementwise=True,
     )
 
-def fahrenheit_to_celsius(temperature: str | pl.Expr, ) -> pl.Expr:
+def fahrenheit_to_celsius(temperature: str | pl.Expr ) -> pl.Expr:
     """
     Converts fahrenheit to degrees celsius
     """

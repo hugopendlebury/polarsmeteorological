@@ -23,6 +23,19 @@ from polarsmeteorological.functions import (
     celsius_to_kelvin,
     kelvin_to_celsius,
     kelvin_to_fahrenheit,
+    hpa_to_inhg,
+    inhg_to_hpa,
+    mmhg_to_hpa,
+    kmph_to_mph,
+    kmph_to_mps,
+    knots_to_kmph,
+    knots_to_mph,
+    mph_to_kmph,
+    mph_to_knots,
+    mph_to_mps,
+    mps_to_kmph,
+    mps_to_knots,
+    mps_to_mph
 )
 
 #from ._internal import __version__
@@ -48,6 +61,19 @@ __all__ = [
     "fahrenheit_to_kelvin",
     "celsius_to_kelvin",
     "kelvin_to_celsius",
-    "kelvin_to_fahrenheit"
+    "kelvin_to_fahrenheit",
+    "hpa_to_inhg",
+    "inhg_to_hpa",
+    "mmhg_to_hpa",
+    "kmph_to_mph",
+    "kmph_to_mps",
+    "knots_to_kmph",
+    "knots_to_mph",
+    "mph_to_kmph",
+    "mph_to_knots",
+    "mph_to_mps",
+    "mps_to_kmph",
+    "mps_to_knots",
+    "mps_to_mph",
     "__version__"
 ]

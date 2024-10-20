@@ -9,7 +9,7 @@ from polarsmeteorological import functions
 
 @pl.api.register_expr_namespace("meteo")
 class ExprMeteorologicalNamespace:
-    """Utilitied related to lat / lon."""
+    """Calcuations and conversions relevant to meteoroloigcal data"""
 
     def __init__(self, expr: pl.Expr) -> None:
         self._expr = expr

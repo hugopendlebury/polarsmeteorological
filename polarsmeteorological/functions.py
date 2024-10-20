@@ -168,6 +168,18 @@ def knots_to_mps(speed: str | pl.Expr ) -> pl.Expr:
         is_elementwise=True,
     )
 
+def knots_to_kmph(speed: str | pl.Expr ) -> pl.Expr:
+    """
+    Converts speed from Knots per hour to Kilometers per hour.
+    """
+    expr = parse_into_expr(speed)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="knots_to_kmph",
+        args=[],
+        is_elementwise=True,
+    )
+
 
 def kmph_to_mps(speed: str | pl.Expr ) -> pl.Expr:
     """
@@ -523,5 +535,32 @@ def common_fahrenheit_humidex(temperature: str | pl.Expr,
         lib=lib,
         symbol="common_fahrenheit_humidex",
         args=[relative_humidity],
+        is_elementwise=True,
+    )
+
+def wind_speed(u_component: str | pl.Expr, 
+                 v_component: str | IntoExpr) -> pl.Expr:
+    """
+    Calculuates wind based based on the u and v components of wind
+
+    Returns degrees of Fahrenheit
+    """
+    expr = parse_into_expr(u_component)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="wind_speed",
+        args=[v_component],
+        is_elementwise=True,
+    )
+
+def meters_to_feet(u_component: str | pl.Expr) -> pl.Expr:
+    """
+    Converts the value from meters to feet
+    """
+    expr = parse_into_expr(u_component)
+    return expr.register_plugin(
+        lib=lib,
+        symbol="meters_to_feet",
+        args=[],
         is_elementwise=True,
     )

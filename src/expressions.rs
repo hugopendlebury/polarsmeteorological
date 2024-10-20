@@ -114,6 +114,12 @@ fn kmph_to_mps(inputs: &[Series]) -> Result<Series, PolarsError> {
 }
 
 #[polars_expr(output_type=Float64)]
+fn knots_to_kmph(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_knots_to_kmph(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
 fn kelvin_to_celsius(inputs: &[Series]) -> Result<Series, PolarsError> {
 
     impl_kelvin_to_celsius(inputs)
@@ -233,4 +239,10 @@ fn fahrenheit_mixing_ratio(inputs: &[Series]) -> Result<Series, PolarsError> {
 fn wind_speed(inputs: &[Series]) -> Result<Series, PolarsError> {
 
     impl_wind_speed(inputs)
+}
+
+#[polars_expr(output_type=Float64)]
+fn meters_to_feet(inputs: &[Series]) -> Result<Series, PolarsError> {
+
+    impl_meters_to_feet(inputs)
 }
